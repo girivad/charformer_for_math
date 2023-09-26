@@ -1,6 +1,6 @@
 # Charformer for Math
 
-## Contextualize the intuition (why did I think to try this?)
+## Contextualize the intuition (Why did I think to try this?)
 
 ## Charformer (Explain charformer + implementation)
 
