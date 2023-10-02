@@ -24,8 +24,8 @@ class GBSTokenizer(nn.Module):
 
     def forward(self, X):
         N, L, d = X.size()
-        print("N:", N, "L:", L, "d:", d)
-        assert d == self.d
+
+        assert d == self.d, "character embedding dimension not matching with Tokenizer embedding dimension"
 
         # Sequences: N x L x d, has an embedding for each character.
         # Apply a 1D Convolution to mix representations of characters, this allows us to simply stride through the blocks.
@@ -45,8 +45,6 @@ class GBSTokenizer(nn.Module):
             ] # M x L x N x d
         ).transpose(0, 2)
 
-        print("X_B.shape:", X_B.size())
-
         # Compute P: N x L x M, scores for each subword block (size) at a each position (uses F_R).
         P = self.softmax(
             self.F_R(X_B)
@@ -55,11 +53,10 @@ class GBSTokenizer(nn.Module):
         # Optionally, calibrate block scores by attending to other positions' block scores [a convolution is probably equally effective here, because it doesn't make sense to attend to block scores at far away positions].
         if self.calibrate:
             P = P.reshape(N, L, self.M)
-            print("P.size:", P.size())
+
             P = self.softmax(
                 P.matmul(P.transpose(1, 2))
             ).matmul(P).reshape(N, L, self.M, 1)
-            print("P^.size:", P.size())
         
         # Compute X_hat: N x L x d, final subword representations at each position.
         X_hat = torch.matmul(P.transpose(-2, -1), X_B).reshape(N, L, d)
