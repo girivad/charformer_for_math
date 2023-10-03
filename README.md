@@ -3,7 +3,7 @@
 Currently, this repository contains a custom implementation of Gradient-Based Subword Tokenization from the Charformer Paper. 
 
 However, the main purpose of the repo is to explore this question: How important is tokenization for language models to do mathematics? 
-Intuitively, for example, a BPE-tokenizer might tokenize numbers (especially large ones) in an expression in terms of numbers frequently seen before, potentially hampering generalization. Could a better, learned tokenizer provide better representations that allow a language model to more easily and successfully perform mathematics?
+Intuitively, for example, a BPE-tokenizer might tokenize numbers (especially large ones) in an expression in terms of numbers frequently seen before, potentially hampering the ability to process them correctly or at least forcing the model to spend more resources to reverse this poor tokenization. Could a better, learned tokenizer provide better representations that allow a language model to more easily and successfully perform mathematics?
 
 In order to test this, I intend to follow this general recipe:
 
