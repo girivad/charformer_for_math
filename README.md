@@ -10,7 +10,7 @@ Could a better tokenization allow a language model to more easily and successful
 
 In order to test this, I intend to follow this general recipe:
 
-Compare a language model (GPT-2, since obvious issues are visible with the GPT Tokenizer) zero-shot, few-shot (i.e. fed training examples in the prompt to teach formatting - not intrinsic mathematical ability), finetuned on math training data, and finetuned on math training data but coupled with a ![GBST](https://arxiv.org/pdf/2106.12672.pdf) layer that simultaneously learns how to tokenize best on the ![DeepMind mathematics dataset](https://github.com/google-deepmind/mathematics_dataset)
+Compare a language model (GPT-2, since obvious issues are visible with the GPT Tokenizer) zero-shot, few-shot (i.e. fed training examples in the prompt to teach formatting - not intrinsic mathematical ability), finetuned on math training data, and finetuned on math training data but coupled with a [GBST](https://arxiv.org/pdf/2106.12672.pdf) layer that simultaneously learns how to tokenize best on the [DeepMind mathematics dataset](https://github.com/google-deepmind/mathematics_dataset)
 
 If it is true that GBST + LM outperforms other settings (and indeed tokenization is a major hamper on mathematics performance of LLMs), it would be further worthwhile to explore whether learning the GBST module on a general dataset (like some sample of the Pile) could still learn to tokenize appropriately from math, without impacting standard language modeling performance (i.e. learn how to tokenize from context). This could allow greater generalization across domains, and would be fascinating to see!
 
