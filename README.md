@@ -4,7 +4,7 @@ Currently, this repository contains a custom implementation of Gradient-Based Su
 
 However, the main purpose of the repo is to explore this question: How important is tokenization for language models to do mathematics? 
 Intuitively, for example, a BPE-tokenizer might tokenize numbers (especially large ones) in an expression in terms of numbers frequently seen before, potentially hampering the ability to process them correctly or at least forcing the model to spend more resources to reverse this poor tokenization. 
-For example, here's how GPT-2/3's tokenizer tokenizes this question from DeepMind's Mathematics Dataset: ![[Uploading image.png…](https://github.com/girivad/charformer_for_math/edit/main/presentation/gpt-2-tokenization-example.png)]()
+For example, here's how GPT-2/3's tokenizer tokenizes this question from DeepMind's Mathematics Dataset: ![[Uploading image.png…](https://github.com/girivad/charformer_for_math/edit/main/presentation/GPT3 Tokenization.png)]()
 
 
 Could a better tokenization allow a language model to more easily and successfully perform mathematics?
